@@ -2,13 +2,6 @@
 {
     http_port 3000
     https_port 3001
-
-    # HTTP/3 support
-    servers {
-        protocol {
-            experimental_http3
-        }
-    }
 }
 
 # Automatic HTTPS does not work with the systemd service unit.
@@ -26,9 +19,9 @@ route {
         # Transport to use (default to Bolt)
         transport_url bolt:///run/mercure/mercure.db
         # Publisher JWT key
-        publisher_jwt !ChangeMe!
+        publisher_jwt !ChangeThisMercureHubJWTSecretKey!
         # Subscriber JWT key
-        subscriber_jwt !ChangeMe!
+        subscriber_jwt !ChangeThisMercureHubJWTSecretKey!
     }
 
     respond /healthz 200
